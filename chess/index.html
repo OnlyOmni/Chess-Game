@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OmniBot Chess</title>
+    <link rel="stylesheet" href="js/libs/chessboard-1.0.0.min.css"> <!-- Ensure this path is correct -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>OmniBot Chess Challenge</h1>
+
+        <div class="controls">
+            <label for="playerColor">Play as:</label>
+            <select id="playerColor">
+                <option value="white" selected>White</option>
+                <option value="black">Black</option>
+                <option value="random">Random</option>
+            </select>
+            <button id="newGameButton">New Game</button>
+            <button id="undoButton" disabled>Undo Move</button>
+        </div>
+
+        <div id="board" class="board"></div>
+
+        <div class="info">
+            <p>Status: <span id="status"></span></p>
+            <p>Turn: <span id="turn"></span></p>
+            <p>FEN: <span id="fen"></span></p>
+            <div>
+                <p>PGN:</p>
+                <textarea id="pgn" rows="5" readonly></textarea>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/libs/jquery-3.6.0.min.js"></script>
+    <script src="js/libs/chessboard-1.0.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chess.js/0.10.3/chess.min.js"></script>
+    <!-- NO SCRIPT TAG FOR STOCKFISH.JS -->
+
+    <script> // Inline Check
+        if (typeof $ === 'undefined') console.error('[INLINE CHECK] jQuery UNDEFINED');
+        if (typeof Chessboard === 'undefined') console.error('[INLINE CHECK] Chessboard UNDEFINED');
+        if (typeof Chess === 'undefined') console.error('[INLINE CHECK] Chess (from chess.js) UNDEFINED');
+        else console.log('[INLINE CHECK] Chess object IS DEFINED.');
+    </script>
+
+    <script src="script.js" defer></script>
+</body>
+</html>
